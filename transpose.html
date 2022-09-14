@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        Transpose of an array
+    </title>
+</head>
+
+<body style="text-align:center;">
+
+    <h1 style="color:red;"> Transpose Printing</h1>
+
+    <p id="main_arr" style="color:green ; font-size: 14px; font-family: sans-serif; font-weight: bold;"></p>
+
+
+
+    <button onclick="Run()">Click here</button>
+
+    <p id="trans_arr" style="color:brown; font-size: 20px; font-weight: bold;"></p>
+
+
+
+
+    <script>
+        var el_up = document.getElementById("main_arr");
+        var el_down = document.getElementById("trans_arr");
+
+        var array = [
+            ["Mahesh", 23, "male", "MBA", "Pune"],
+            ["Rahul", 25, "male", "BTech", "Chandigarh"],
+            ["Ash", 27, "female", "BTech", "Surat"],
+            ["Saurav", 21, "male", "Bcom", "Nashik"],
+            ["Bhumi", 29, "female", "MBA", "Mumbai"]
+        ];
+
+        el_up.innerHTML = "[ [ " + array[0] + " ] ],[ [ "
+            + array[1] + " ] ], [ [ " + array[2] + " ] ],[ [ " + array[3] + " ] ], [ [ " + array[4] + " ] ]";
+
+        function transpose(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < i; j++) {
+                    const tmp = arr[i][j];
+                    arr[i][j] = arr[j][i];
+                    arr[j][i] = tmp;
+                }
+            }
+        }
+
+        function Run() {
+            array = array[0].map((col, i) => array.map(row => row[i]));
+
+            el_down.innerHTML = "[ [ " + array[0] + " ] ], [ [ "
+                + array[1] + " ] ], [ [ " + array[2] + " ] ],[ [ " + array[3] + " ] ], [ [ " + array[4] + " ] ]";
+        }		
+    </script>
+</body>
+
+</html>
